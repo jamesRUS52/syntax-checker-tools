@@ -1,0 +1,55 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "0b31dcc856fddd4a49f1b35fdc682f98",
+    "packages": [
+        {
+            "name": "james.rus52/syntax-checker",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jamesRUS52/syntax-checker.git",
+                "reference": "99006cea97bbec1c57ac0b82fe1e4572dab31126"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jamesRUS52/syntax-checker/zipball/99006cea97bbec1c57ac0b82fe1e4572dab31126",
+                "reference": "99006cea97bbec1c57ac0b82fe1e4572dab31126",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SyntaxChecker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "james.rus52",
+                    "email": "james.rus52@gmail.com"
+                }
+            ],
+            "description": "validate brackes",
+            "time": "2020-08-31T19:57:00+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}

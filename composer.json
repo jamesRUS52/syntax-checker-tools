@@ -1,0 +1,6 @@
+{
+    "require": {
+        "james.rus52/syntax-checker": "^1.0",
+      "ext-sockets": "*"
+    }
+}
