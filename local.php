@@ -5,7 +5,7 @@ use SyntaxChecker\Checker;
 require __DIR__.'\vendor\autoload.php';
 
 if ( count($argv) < 2) {
-    print "usage: php client.php <STRING>";
+    print "usage: php local.php <STRING>";
     exit(0);
 }
 
