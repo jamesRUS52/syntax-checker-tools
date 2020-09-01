@@ -22,18 +22,23 @@ try {
     $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
     socket_bind($socket, $address, $port);
     socket_listen($socket, 5);
+    print "Server is up and running on {$address}:{$port}".PHP_EOL;
 
     $checker = new Checker();
     $checker->setAvailableChars(['(', ')', ' ', '\n', '\r', '\n\r', '\t', PHP_EOL]);
 
     do {
         $msgsock = socket_accept($socket);
+        print "Client connected".PHP_EOL;
         $msg = "Hello from Syntax checker server. Type your string for checking".PHP_EOL;
         socket_write($msgsock, $msg, strlen($msg));
 
         do {
-            $request = trim(socket_read($msgsock, 2048, PHP_NORMAL_READ));
+            $request = trim(@socket_read($msgsock, 2048, PHP_NORMAL_READ));
             if (empty($request)) {
+                if (socket_last_error($msgsock) == 10054) {
+                    break;
+                }
                 continue;
             }
             print "input string is: {$request}".PHP_EOL;
@@ -50,11 +55,11 @@ try {
             } catch (InvalidArgumentException $ex) {
                 $response = $ex->getMessage().PHP_EOL;
             }
-            $response = (new DateTime())->format('d.m.Y H:i:s').' '.$response;
+            $response = (new DateTime())->format('d.m.Y H:i:s').' '.$response."\0";
             socket_write($msgsock, $response, strlen($response));
         } while (true);
-
         socket_close($msgsock);
+        print "Client disconnected".PHP_EOL;
     } while (true);
     socket_close($socket);
 } catch (Exception $ex) {
